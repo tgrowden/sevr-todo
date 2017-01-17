@@ -1,11 +1,33 @@
 'use strict'
 
-const Private = require('./private')
+let Private
 
-const Config = {
-
+try {
+	Private = require('./private')
+} catch(e) {
+	if (e instanceof Error && e.code === 'MODULE_NOT_FOUND') {
+		Private = {}
+	} else {
+		throw e
+	}
 }
 
+const Config = {
+	permissions: {
+		roles: {
+			admin: {
+				'_': '*'
+			},
+			user: {
+				users: 'r',
+				statuses: '*',
+				lists: '*'
+			},
+			'_': {
+				'_': 'r'
+			}
+		}
+	}
+}
 
-
-module.exports = Config
+module.exports = Object.assign(Config, Private)

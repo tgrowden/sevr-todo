@@ -1,6 +1,9 @@
 const Sevr    = require('sevr')
 const SevrCli = require('sevr-cli')
+const SevrPerm  = require('sevr-perm')
 const Rest = require('sevr-rest')
+const WebServer = require('./web')
+const config = require('./config')
 
 /**
  * Application plugin class
@@ -27,14 +30,17 @@ class App {
 }
 
 // Create a new Sevr instance
-const sevr = new Sevr()
+const sevr = new Sevr(config)
 
 // Attach the remote CLI plugin
 sevr.attach(SevrCli)
 
-// Attach the application plugin
-sevr.attach(App)
+sevr.attach(SevrPerm, config.permissions)
 
 sevr.attach(Rest)
+
+sevr.attach(WebServer)
+
+sevr.attach(App)
 
 module.exports = sevr

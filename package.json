@@ -11,6 +11,7 @@
   "dependencies": {
     "sevr": "^0.3.0",
     "sevr-cli": "^0.2.4",
+    "sevr-perm": "^0.2.0",
     "sevr-rest": "^0.2.0"
   },
   "devDependencies": {
