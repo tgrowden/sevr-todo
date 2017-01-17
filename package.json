@@ -1,0 +1,20 @@
+{
+  "name": "sevr-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sevr": "^0.3.0",
+    "sevr-cli": "^0.2.4",
+    "sevr-rest": "^0.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.13.1",
+    "eslint-plugin-react": "^6.9.0"
+  }
+}
